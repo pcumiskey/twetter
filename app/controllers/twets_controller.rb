@@ -37,6 +37,15 @@ class TwetsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def profile
+
+    @twets = Twet.where("user_id= ?", params[:id])
+  end
+
+
   private
 
   # Sets the @twets instance variable to all twets viewable by the current user

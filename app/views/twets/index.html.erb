@@ -7,6 +7,7 @@
     <div class="pull-left">
       <h4>Twets</h4>
     </div>
+    <%= follow_link(@user, profile_path(:username => @user.username)) if @user and @user.id != current_user.id %>
     <div class="clearfix"></div>
     <hr />
     <ol class="list-unstyled">
@@ -17,10 +18,10 @@
         <%= content_tag :small, twet.created_at.strftime("%b %-d"), :class => 'text-muted text-middle pull-right' %>
         <div class="clearfix"></div>
         <%= content_tag :p, twet.content %>
+        <%= link_to ("see tweey"), profile_path(twet.user.id) %>
       </li>
       <li><hr></li>
       <% end -%>
     </ol>
   </div>
 </div>
-

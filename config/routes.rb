@@ -4,6 +4,7 @@ Twetter::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   authenticated :user do
+    get "profile/:id"  => "twets#profile", as: "profile"
     resources :follows, :except => [:new, :edit, :show, :update]
     resources :twets, :except => [:new, :edit, :show, :update]
     root :to => 'follows#index', :as => :user_root
