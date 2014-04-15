@@ -13,7 +13,9 @@
     <ol class="list-unstyled">
       <% @twets.each do |twet| -%>
       <li>
-       # <%= content_tag :strong, twet.user.name, :class => 'pull-left text-middle' %>
+        
+        <%= image_tag avatar_url (twet.user.email) %>
+        
         <%= link_to twet.user.name , profile_path(twet.user.id) %>
         <%= content_tag :small, "@"+twet.user.username, :class => 'text-muted pad-10 text-middle' %>
         <%= content_tag :small, twet.created_at.strftime("%b %-d"), :class => 'text-muted text-middle pull-right' %>
